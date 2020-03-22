@@ -53,6 +53,7 @@ class Blog(BasePlugin):
             # blog meta data
             if file_obj.src_path.startswith('blog/'):
                 meta_data = self.get_meta_data(file_obj.abs_src_path)
+                meta_data['url'] = meta_data['path']
                 self.blog_data.append(meta_data)
         self.latest_articles = self.get_latest_articles(self.blog_data)
         self.tags = self.get_tags(self.blog_data)
